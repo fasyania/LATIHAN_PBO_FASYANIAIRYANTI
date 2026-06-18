@@ -1,7 +1,6 @@
 <?php
 // File: classes/pendaftaranReguler.php
 
-// Memanggil file induk dengan nama huruf kecil sesuai berkasmu
 require_once 'pendaftaran.php';
 
 class PendaftaranReguler extends Pendaftaran {
@@ -22,7 +21,6 @@ class PendaftaranReguler extends Pendaftaran {
 
     /**
      * METODE QUERY SPESIFIK: Mengambil data khusus jalur Reguler
-     * Menggunakan perintah SELECT ... WHERE sesuai instruksi dosen
      */
     public static function getDaftarReguler($db) {
         $query = "SELECT id_pendaftaran, nama_calon, asal_sekolah, nilai_ujian, biaya_pendaftaran_dasar, pilihan_prodi, lokasi_kampus 
@@ -35,14 +33,15 @@ class PendaftaranReguler extends Pendaftaran {
     }
 
     /**
-     * Mengimplementasikan ulang method abstrak dari parent agar tidak memicu fatal error
+     * TAHAP 5: Overriding Polimorfisme - Jalur Reguler
+     * Total Biaya = biayaPendaftaranDasar murni tanpa biaya tambahan
      */
     public function hitungTotalBiaya() {
         return $this->biayaPendaftaranDasar;
     }
 
     public function tampilkanInfoJalur() {
-        return "Jalur Pendaftaran: Reguler";
+        return "Jalur Pendaftaran: Reguler | Pilihan Prodi: " . $this->pilihanProdi . " | Lokasi: " . $this->lokasiKampus;
     }
 }
 ?>

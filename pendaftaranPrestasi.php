@@ -33,14 +33,15 @@ class PendaftaranPrestasi extends Pendaftaran {
     }
 
     /**
-     * Mengimplementasikan ulang method abstrak dari parent
+     * TAHAP 5: Overriding Polimorfisme - Jalur Prestasi
+     * Total Biaya = biayaPendaftaranDasar - Potongan Rp50.000
      */
     public function hitungTotalBiaya() {
-        return $this->biayaPendaftaranDasar;
+        return $this->biayaPendaftaranDasar - 50000;
     }
 
     public function tampilkanInfoJalur() {
-        return "Jalur Pendaftaran: Prestasi";
+        return "Jalur Pendaftaran: Prestasi | Jenis: " . $this->jenisPrestasi . " | Tingkat: " . $this->tingkatPrestasi;
     }
 }
 ?>

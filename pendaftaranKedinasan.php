@@ -33,14 +33,15 @@ class PendaftaranKedinasan extends Pendaftaran {
     }
 
     /**
-     * Mengimplementasikan ulang method abstrak dari parent
+     * TAHAP 5: Overriding Polimorfisme - Jalur Kedinasan
+     * Total Biaya = biayaPendaftaranDasar * 1.25 (Surcharge 25%)
      */
     public function hitungTotalBiaya() {
-        return $this->biayaPendaftaranDasar;
+        return $this->biayaPendaftaranDasar * 1.25;
     }
 
     public function tampilkanInfoJalur() {
-        return "Jalur Pendaftaran: Kedinasan";
+        return "Jalur Pendaftaran: Kedinasan | SK: " . $this->skIkatanDinas . " | Sponsor: " . $this->instansiSponsor;
     }
 }
 ?>
